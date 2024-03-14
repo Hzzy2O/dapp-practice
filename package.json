@@ -1,0 +1,49 @@
+{
+  "name": "dapp-practice",
+  "version": "1.0.0",
+  "description": "dapp practice",
+  "main": "index.js",
+  "scripts": {
+    "account": "pnpm --filter smartcontract run account",
+    "chain": "pnpm --filter smartcontract run chain",
+    "compile": "pnpm --filter smartcontract run compile",
+    "fork": "pnpm --filter smartcontract run fork",
+    "generate": "pnpm --filter smartcontract run generate",
+    "hardhat:deploy": "pnpm --filter smartcontract run deploy",
+    "hardhat-verify": "pnpm --filter smartcontract run hardhat-verify",
+    "hardhat:lint": "pnpm --filter smartcontract run lint",
+    "hardhat:lint-staged": "pnpm --filter smartcontract run lint-staged",
+    "hardhat:test": "pnpm --filter smartcontract run test",
+    "next:check-types": "pnpm --filter frontend check-types",
+    "next:format": "pnpm --filter frontend format",
+    "next:lint": "pnpm --filter frontend lint",
+    "precommit": "lint-staged",
+    "start": "pnpm --filter frontend dev",
+    "dev": "pnpm --filter frontend dev",
+    "test": "pnpm run hardhat:test",
+    "vercel": "pnpm --filter frontend vercel",
+    "vercel:yolo": "pnpm --filter frontend vercel:yolo",
+    "verify": "pnpm --filter frontend verify"
+  },
+  "workspaces": {
+    "packages": [
+      "packages/*"
+    ]
+  },
+  "keywords": [
+    "dapp",
+    "erc20",
+    "nextjs",
+    "wagmi"
+  ],
+  "packageManager": "pnpm@7.30.0",
+  "author": "Hzzy2O",
+  "license": "MIT",
+  "devDependencies": {
+    "eslint": "^8.57.0",
+    "eslint-config-prettier": "^9.1.0",
+    "eslint-plugin-prettier": "^5.1.3",
+    "prettier": "^3.2.5",
+    "typescript": "^5.4.2"
+  }
+}
