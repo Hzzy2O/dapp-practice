@@ -1,4 +1,3 @@
-
 ## 快速开始
 
 node 版本: >= 18.17.0
@@ -21,7 +20,13 @@ pnpm chain
 pnpm hardhat:deploy
 ```
 
-4. 运行前端:
+4. 生成abi:
+
+```
+pnpm generate:abi
+```
+
+5. 运行前端:
 
 ```
 pnpm start

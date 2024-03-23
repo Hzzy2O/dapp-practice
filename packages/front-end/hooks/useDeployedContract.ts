@@ -1,12 +1,11 @@
 import { useIsMounted } from "usehooks-ts";
 import { Contract, ContractCodeStatus, ContractName, contracts } from "@/utils/contract";
-import { localhost } from "viem/chains";
 import { usePublicClient } from "wagmi";
+import { useTargetNetwork } from "./useTargetNetwork";
 
 export const useDeployedContractInfo = <TContractName extends ContractName>(contractName: TContractName) => {
   const isMounted = useIsMounted();
-  // const { targetNetwork } = useTargetNetwork();
-  const targetNetwork = localhost;
+  const { targetNetwork } = useTargetNetwork();
   const deployedContract = contracts?.[targetNetwork.id]?.[contractName as ContractName] as Contract<TContractName>;
   const [status, setStatus] = useState<ContractCodeStatus>(ContractCodeStatus.LOADING);
   const publicClient = usePublicClient({ chainId: targetNetwork.id });
