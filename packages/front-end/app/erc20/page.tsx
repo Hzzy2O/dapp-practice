@@ -18,7 +18,6 @@ export default function ERC20() {
       <div className="col-span-5 grid grid-cols-1 lg:grid-cols-3 gap-8 lg:gap-10">
         <div className="col-span-1 flex flex-col">
           <div className="bg-base-300 rounded-3xl px-6 lg:px-8 py-4 shadow-lg shadow-base-300">
-            {/* <ContractVariables deployedContractData={deployedContractData} /> */}
             <TokenInfo contract={contractData} />
           </div>
         </div>
@@ -27,7 +26,6 @@ export default function ERC20() {
             <div className="bg-base-100 rounded-3xl shadow-md shadow-secondary border border-base-300 flex flex-col relative">
               <div className="p-5">
                 <Mint contract={contractData} />
-                {/* <ContractReadMethods deployedContractData={deployedContractData} /> */}
                 <Balance contract={contractData} />
                 <Transfer contract={contractData} />
               </div>

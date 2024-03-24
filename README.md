@@ -20,13 +20,7 @@ pnpm chain
 pnpm hardhat:deploy
 ```
 
-4. 生成abi:
-
-```
-pnpm generate:abi
-```
-
-5. 运行前端:
+4. 运行前端:
 
 ```
 pnpm start

@@ -9,26 +9,29 @@ export const useDeployedContractInfo = <TContractName extends ContractName>(cont
   const deployedContract = contracts?.[targetNetwork.id]?.[contractName as ContractName] as Contract<TContractName>;
   const [status, setStatus] = useState<ContractCodeStatus>(ContractCodeStatus.LOADING);
   const publicClient = usePublicClient({ chainId: targetNetwork.id });
-
+  //
   useEffect(() => {
     const checkContractDeployment = async () => {
       if (!deployedContract) {
         setStatus(ContractCodeStatus.NOT_FOUND);
         return;
       }
-      const code = await publicClient?.getBytecode({
-        address: deployedContract.address,
-      });
+      try {
+        const code = await publicClient?.getBytecode({
+          address: deployedContract.address,
+        });
+        if (!isMounted()) {
+          return;
+        }
 
-      if (!isMounted()) {
-        return;
+        if (code === "0x") {
+          setStatus(ContractCodeStatus.NOT_FOUND);
+          return;
+        }
+        setStatus(ContractCodeStatus.DEPLOYED);
+      } catch (error) {
+        console.error(error);
       }
-
-      if (code === "0x") {
-        setStatus(ContractCodeStatus.NOT_FOUND);
-        return;
-      }
-      setStatus(ContractCodeStatus.DEPLOYED);
     };
 
     checkContractDeployment();
